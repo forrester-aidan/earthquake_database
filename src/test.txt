@@ -1,0 +1,30 @@
+int partition(vector<double> &earthquakes, int low, int high) {
+    // the pivot value should be a double since we sorting doubles, no integers
+    double pivot = earthquakes[low];
+    int up = low, down = high;
+
+    while (up < down) {
+      
+        // It should increment i, not up.
+        for (int i = up; i < high; i++) {
+            if (earthquakes[up] > pivot) { //  earthquakes[i] > pivot instead
+                break;
+            }
+            up++; // it should not always increment up
+        }
+        // This loop should decrement j
+        for (int j = high; j > low; j--) {
+            if (earthquakes[down] < pivot) { // This should be earthquakes[j] < pivot
+                break;
+            }
+            down--; // This seems right
+        }
+        // If up is still less than down, swap the elements at up and down.
+        if (up < down) {
+            swap(earthquakes[up], earthquakes[down]); // Use std::swap 
+        }
+    }
+    // After the partitioning, swap the pivot element with the element at down.
+    swap(earthquakes[low], earthquakes[down]); // use std::swappy boi
+    return down; // return partition index
+}
