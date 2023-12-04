@@ -48,32 +48,32 @@ int main(int argc, char **argv) {
                 cout << "Sorting the earthquakes by magnitude using Merge Sort...\n" << endl;
                 auto start = chrono::steady_clock::now( );
                 ops.mergeSort(eq_list, 0, eq_list.size() - 1);
-                auto elapsed = chrono::duration_cast<chrono::nanoseconds>( chrono::steady_clock::now( ) - start );
+                auto elapsed = chrono::duration_cast<chrono::milliseconds>( chrono::steady_clock::now( ) - start );
                 // Print sorted earthquake data
                 for (int e = 0; e < 10; e++) {
                     ops.printEarthquakeDetails(eq_list[e]); // Call the print function from Operations.h
 
                 }
-                cout << elapsed.count( ) << " nanoseconds";
+                cout << elapsed.count( ) << " milliseconds";
             } else if (sorting_method == "2") {
                //AIDANs code
                 cout << "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
                 cout << "Sorting earthquake magnitudes using Quick Sort...\n" << endl;
                 auto start = chrono::steady_clock::now( );
                 ops.quickSort(eq_list, 0, eq_list.size() - 1);
-                auto elapsed = chrono::duration_cast<chrono::nanoseconds>( chrono::steady_clock::now( ) - start );
+                auto elapsed = chrono::duration_cast<chrono::milliseconds>( chrono::steady_clock::now( ) - start );
 
                 for (int i = 0; i < 10; i++) {
                   ops.printEarthquakeDetails(eq_list[i]); // Call the print function from Operations.h
                 }
-                cout << "\n" << elapsed.count( ) << " nanoseconds";
+                cout << "\n" << elapsed.count( ) << " milliseconds";
 
             }
           cout << "\n\n";
         } 
         else if (selection_num == "2") {
             srand(time(0)); // SET SEED
-            // gernate and display random earthquake data from the vector
+            // generate and display random earthquake data from the vector
             cout << "\nDisplaying random earthquake... (°ロ°)\n" <<endl;
             int randomIndex = rand() % eq_list.size(); 
             ops.printEarthquakeDetails(eq_list[randomIndex]); 
@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
         } 
         else if (selection_num == "5"){
           cout << "\nTop 10 Most Frequent Locations for Earthquakes:\n" << endl;
-           ops.DisplayTop10Locations(eq_list);
+           ops.displayTop10Locations(eq_list);
           cout << endl;
 
         } 
