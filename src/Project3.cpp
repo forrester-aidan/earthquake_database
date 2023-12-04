@@ -15,10 +15,6 @@
 using namespace std;
 using namespace bridges;
 
-// auto start = chrono::steady_clock::now( );
-// auto elapsed = chrono::duration_cast<chrono::milliseconds>( chrono::steady_clock::now( ) - start );
-// cout << elapsed.count( ) << '\n';
-
 int main(int argc, char **argv) {
     Operations ops;
     Bridges bridges(1, getenv("UserID"), getenv("MyAPI"));
